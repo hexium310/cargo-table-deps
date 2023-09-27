@@ -1,0 +1,21 @@
+[package]
+name = "cargo-table-deps"
+version = "0.0.1"
+edition = "2021"
+
+[dependencies.anyhow]
+version = "1.0.75"
+
+[dependencies.cargo_metadata]
+version = "0.18.0"
+
+[dependencies.clap]
+version = "4.4.4"
+features = ["derive", "wrap_help"]
+
+[dependencies.clap-cargo]
+version = "0.12.0"
+
+[dependencies.toml_edit]
+version = "0.20.0"
+features = ["serde"]
