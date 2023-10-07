@@ -2,6 +2,7 @@ use std::{fs, io::{BufWriter, Write, stdout}, path::PathBuf};
 
 use anyhow::Result;
 use clap::{Args, Parser};
+use toml_edit::Document;
 
 use crate::{
     manifest::{Manifest, ManifestDocument},
@@ -98,7 +99,7 @@ pub(crate) fn execute() -> Result<()> {
     for package in packages {
         let manifest_path = &package.manifest_path;
         let text = fs::read_to_string(manifest_path)?;
-        let mut manifest = Manifest::build(manifest_path, &text)?;
+        let mut manifest = Manifest::<Document>::build(manifest_path, &text)?;
 
         manifest.convert();
 
